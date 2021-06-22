@@ -66,7 +66,7 @@ class _FormSubmitState extends State<FormSubmit> {
                                 Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    RichText(text: TextSpan(text: "Seleziona il sistema operativo target:", style: TextStyle(color: fromHex("#00A4CE"), fontSize: 20))),
+                                    RichText(text: TextSpan(text: "Target OS:", style: TextStyle(color: fromHex("#00A4CE"), fontSize: 20))),
                                     Container(
                                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), color: fromHex("#00A4CE"),),
                                       margin: EdgeInsets.only(left: 12),
@@ -130,8 +130,8 @@ class _FormSubmitState extends State<FormSubmit> {
                                 Container(padding: const EdgeInsets.all(20),),
                                 RichText(
                                   text: TextSpan(
-                                    text: "Inserisci le keyword che vuoi ricercare: ",
-                                    style: TextStyle(color: fromHex("#ffffff"), fontSize: 15),
+                                    text: "Keywords: ",
+                                    style: TextStyle(color: fromHex("#00A4CE"), fontSize: 15),
                                     children: [
                                       TextSpan(
                                         text: "(Processi, file, protocolli, email, domini, header, URL ...)",
@@ -141,6 +141,7 @@ class _FormSubmitState extends State<FormSubmit> {
                                 ),
                                 Container(padding: const EdgeInsets.all(5),),
                                 TextFormField(
+                                  style: TextStyle(color: Colors.white),
                                   validator: (str) {
                                     if(!kwRegex.hasMatch(str)) return "Controlla di aver inserito bene i campi";
                                     else return null;
@@ -155,17 +156,18 @@ class _FormSubmitState extends State<FormSubmit> {
                                 Container(padding: const EdgeInsets.all(20),),
                                 RichText(
                                   text: TextSpan(
-                                    text: "Inserisci gli indirizzi ip che vuoi ricercare: ",
+                                    text: "IP addresses: ",
                                     style: TextStyle(color: fromHex("#00A4CE"), fontSize: 15),
                                     children: [
                                       TextSpan(
-                                        text: "(Puoi specificare anche solo parte di esso)",
+                                        text: "(Puoi specificare anche solo parte di essi)",
                                         style: TextStyle(color: fromHex("#ffffff"), fontSize: 15),
                                       )]
                                   ),
                                 ),
                                 Container(padding: const EdgeInsets.all(5),),
                                 TextFormField(
+                                  style: TextStyle(color: Colors.white),
                                   onSaved: (newValue) => req.setIpFromString(newValue),
                                   validator: (str) {
                                     if(!ipRegex.hasMatch(str)) return "Controlla di aver inserito bene i campi";
@@ -179,7 +181,7 @@ class _FormSubmitState extends State<FormSubmit> {
                                 ),
                                 CustomButton(
                                   alignment: Alignment.bottomRight,
-                                  child: Text("Squeeze!", style: TextStyle(fontSize: 22),),
+                                  child: Text("Procedi", style: TextStyle(fontSize: 22),),
                                   onPressed: () {
                                     if (_formKey.currentState.validate()){
                                       _formKey.currentState.save();

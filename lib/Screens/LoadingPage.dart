@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:first_app/Utils/utils.dart';
 import 'package:first_app/Services/VolatilityServices.dart';
 
+import '../Utils/utils.dart';
+
 
 class LoadingPage extends StatefulWidget {
   @override
@@ -211,6 +213,7 @@ class _LoadingPageState extends State<LoadingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: fromHex("#222222"),
       appBar: AppBar(
         leading: IconButton(icon: Icon(Icons.arrow_back_ios), onPressed: () => Navigator.pop(context),),
       ),
