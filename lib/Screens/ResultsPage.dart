@@ -10,6 +10,8 @@ import 'package:first_app/Widgets/ShadowContainer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../Utils/utils.dart';
+
 class ResultsPage extends StatefulWidget {
   @override
   _ResultsPageState createState() => _ResultsPageState();
@@ -45,7 +47,7 @@ GrepResponse pagefileGrepResponse;
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/images/BackgroundForm.png"),
+                image: AssetImage("assets/images/BackgroundHomeAlt.png"),
                 fit:BoxFit.fill
               )
             ),
@@ -58,6 +60,7 @@ GrepResponse pagefileGrepResponse;
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width,
                     child: Container(
+                      color: fromHex("#666666"),
                       padding: EdgeInsets.all(40.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,

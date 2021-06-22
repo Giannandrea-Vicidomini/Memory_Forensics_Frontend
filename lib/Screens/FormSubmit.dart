@@ -7,6 +7,9 @@ import 'package:flutter/material.dart';
 
 import '../Utils/utils.dart';
 import '../Utils/utils.dart';
+import '../Utils/utils.dart';
+import '../Utils/utils.dart';
+import '../Utils/utils.dart';
 
 class FormSubmit extends StatefulWidget{
   @override
@@ -141,7 +144,7 @@ class _FormSubmitState extends State<FormSubmit> {
                                 ),
                                 Container(padding: const EdgeInsets.all(5),),
                                 TextFormField(
-                                  style: TextStyle(color: Colors.white),
+                                  style: TextStyle(color: fromHex("#222222")),
                                   validator: (str) {
                                     if(!kwRegex.hasMatch(str)) return "Controlla di aver inserito bene i campi";
                                     else return null;
@@ -150,6 +153,8 @@ class _FormSubmitState extends State<FormSubmit> {
                                   maxLines: 10,
                                   minLines: 5,
                                   decoration: InputDecoration(
+                                    filled: true,
+                                    fillColor: Colors.white,
                                     border: OutlineInputBorder(borderSide: BorderSide(color: fromHex("#D5D5D5")))
                                   ),
                                 ),
@@ -167,7 +172,8 @@ class _FormSubmitState extends State<FormSubmit> {
                                 ),
                                 Container(padding: const EdgeInsets.all(5),),
                                 TextFormField(
-                                  style: TextStyle(color: Colors.white),
+                                
+                                  style: TextStyle(color: fromHex("#222222")),
                                   onSaved: (newValue) => req.setIpFromString(newValue),
                                   validator: (str) {
                                     if(!ipRegex.hasMatch(str)) return "Controlla di aver inserito bene i campi";
@@ -176,6 +182,8 @@ class _FormSubmitState extends State<FormSubmit> {
                                   maxLines: 10,
                                   minLines: 5,
                                   decoration: InputDecoration(
+                                    filled: true,
+                                    fillColor: Colors.white,
                                     border: OutlineInputBorder(borderSide: BorderSide(color: fromHex("#D5D5D5")))
                                   ),
                                 ),
