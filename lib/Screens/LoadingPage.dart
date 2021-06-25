@@ -50,20 +50,20 @@ class _LoadingPageState extends State<LoadingPage> {
 
     //Controllo che le keyword siano state recuperate correttamente
     if (request != null){
-      await setMessageState("Sto analizzando il dump, metitti comodo, ci vorrà un po!", "Sto eseguendo pslist...");
+      await setMessageState("Analisi in corso...", "Sto eseguendo pslist...");
       
       VolatilityResponse resPslist = await VolatilityServices.psList(request.os); //Eseguo pslist
       
       //Controllo se pslist è andato a buon fine
       if (!resPslist.isBlank){
-        await setMessageState("Sto analizzando il dump, metitti comodo, ci vorrà un po!", "Esecuzione di pslist riuscita");
+        await setMessageState("Analisi in corso...", "Esecuzione di pslist riuscita");
 
         
         allVolatilityResponses["pslist"] = resPslist;
         pslist = true;
 
         if(request.os == "windows"){
-          await setMessageState("Sto analizzando il dump, metitti comodo, ci vorrà un po!", "Sto eseguendo netscan...");
+          await setMessageState("Analisi in corso...", "Sto eseguendo netscan...");
   
         } else {
           await setMessageState("Netscan non supporta questo sistema operativo...", "Passo al prossimo tool!");
@@ -75,14 +75,14 @@ class _LoadingPageState extends State<LoadingPage> {
         //Controllo che netscan sia andato a buon fine
         if (!resNetscan.isBlank){
           if(request.os == "windows"){
-            await setMessageState("Sto analizzando il dump, metitti comodo, ci vorrà un po!", "Esecuzione di netscan riuscita");
+            await setMessageState("Analisi in corso...", "Esecuzione di netscan riuscita");
     
             allVolatilityResponses["netscan"] = resNetscan;
           }
           netscan = true;
 
           if(request.os == "windows"){
-            await setMessageState("Sto analizzando il dump, metitti comodo, ci vorrà un po!", "Sto eseguendo filescan...");
+            await setMessageState("Analisi in corso...", "Sto eseguendo filescan...");
     
           } else {
           await setMessageState("Filescan non supporta questo sistema operativo...", "Passo al prossimo tool!");
@@ -94,33 +94,33 @@ class _LoadingPageState extends State<LoadingPage> {
           //Controllo che netscan sia andato a buon fine
           if (!resFilescan.isBlank){
             if(request.os == "windows"){
-              await setMessageState("Sto analizzando il dump, metitti comodo, ci vorrà un po!", "Esecuzione di filescan riuscita");
+              await setMessageState("Analisi in corso...", "Esecuzione di filescan riuscita");
       
               allVolatilityResponses["filescan"] = resFilescan;
             }
 
             filescan = true;
 
-            await setMessageState("Sto analizzando il dump, metitti comodo, ci vorrà un po!", "Sto eseguendo timeliner...");
+            await setMessageState("Analisi in corso...", "Sto eseguendo timeliner...");
 
             VolatilityResponse resTimeliner = await VolatilityServices.timeliner(request.os); //Eseguo timeliner
 
             if (!resTimeliner.isBlank){
-              await setMessageState("Sto analizzando il dump, metitti comodo, ci vorrà un po!", "Esecuzione di timeliner riuscita");
+              await setMessageState("Analisi in corso...", "Esecuzione di timeliner riuscita");
       
               allVolatilityResponses["timeliner"] = resTimeliner;
 
               timeliner = true;
 
-              await setMessageState("Sto analizzando il dump, metitti comodo, ci vorrà un po!", "Sto eseguendo bulk_extractor...");
+              await setMessageState("Analisi in corso...", "Sto eseguendo bulk_extractor...");
               
               BulkExtractorResponse beRes = await BulkExtractorServices.be(request);
 
               if(!beRes.isBlank) {
-                await setMessageState("Sto analizzando il dump, metitti comodo, ci vorrà un po!", "Esecuzione di bulk_extractor riuscita...");
+                await setMessageState("Analisi in corso...", "Esecuzione di bulk_extractor riuscita...");
                 bulkextractor = true;
 
-                await setMessageState("Sto analizzando il dump, metitti comodo, ci vorrà un po!", "Sto eseguendo grep...");
+                await setMessageState("Analisi in corso...", "Sto eseguendo grep...");
 
                 GrepResponse memdumpGrepResponse = await MemdumpGrepServices.grep(request);
 
@@ -129,7 +129,7 @@ class _LoadingPageState extends State<LoadingPage> {
                   memdumpGrep = true;
 
 
-                  await setMessageState("Sto analizzando il pagefile, manca poco", "Sto eseguendo grep...");
+                  await setMessageState("Analisi in corso...", "Sto eseguendo grep...");
 
                   GrepResponse pagefileGrepResponse = await PagefileGrepServices.grep(request);
 

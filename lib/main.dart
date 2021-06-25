@@ -15,8 +15,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      title: 'MemSqueezer',
+      title: 'DF Framework',
       initialRoute: "/home",
+      debugShowCheckedModeBanner: false,
 
       routes: <String, WidgetBuilder> {
         "/home": (context) => HomePage(),

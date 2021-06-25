@@ -112,7 +112,7 @@ class _FormSubmitState extends State<FormSubmit> {
                                     style: TextStyle(color: fromHex("#ffffff"), fontSize: 15),
                                     children: [
                                       TextSpan(
-                                        text: "Inserisci nei campi sottostanti delle keyword separate da un ';', il framework ricercherà automaticamente dei match sia come stringa intera che come sottostringa."
+                                        text: "inserisci nei form delle parole chiave separate da ';', esse veranno ricercate come stringhe e sottostringhe."
                                       )
                                     ]
                                   )),
@@ -125,7 +125,7 @@ class _FormSubmitState extends State<FormSubmit> {
                                     style: TextStyle(color: fromHex("#ffffff"), fontSize: 15),
                                     children: [
                                       TextSpan(
-                                        text: r"Puoi usare il carattere speciale '$' davanti ad ogni keyword per forzare il sistema a matchare la stringa completa, senza ricercare la stessa come sottostringa"
+                                        text: r"Anteponendo '$' ad ogni keyword, esse verranno ricercate esclusivamente come stringhe complete."
                                       )
                                     ]
                                   )),
