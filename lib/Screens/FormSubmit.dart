@@ -146,13 +146,19 @@ class _FormSubmitState extends State<FormSubmit> {
                                 TextFormField(
                                   style: TextStyle(color: fromHex("#222222")),
                                   validator: (str) {
-                                    if(!kwRegex.hasMatch(str)) return "Controlla di aver inserito bene i campi";
+                                    if(!kwRegex.hasMatch(str)) return "Controlla che il formato sia corretto e non vuoto";
                                     else return null;
                                   },
                                   onSaved: (newValue) => req.setKeywordsFromString(newValue),
                                   maxLines: 10,
                                   minLines: 5,
                                   decoration: InputDecoration(
+                                    errorStyle: TextStyle(
+                                      fontSize: 16.0,
+                                      shadows: [
+                                        Shadow(color:Colors.black,blurRadius:1.0,offset: Offset(1.0,1.5))
+                                      ]
+                                    ),
                                     filled: true,
                                     fillColor: Colors.white,
                                     border: OutlineInputBorder(borderSide: BorderSide(color: fromHex("#D5D5D5")))
@@ -176,12 +182,18 @@ class _FormSubmitState extends State<FormSubmit> {
                                   style: TextStyle(color: fromHex("#222222")),
                                   onSaved: (newValue) => req.setIpFromString(newValue),
                                   validator: (str) {
-                                    if(!ipRegex.hasMatch(str)) return "Controlla di aver inserito bene i campi";
+                                    if(!ipRegex.hasMatch(str)) return "Controlla che il formato sia corretto";
                                     else return null;
                                   },
                                   maxLines: 10,
                                   minLines: 5,
                                   decoration: InputDecoration(
+                                    errorStyle: TextStyle(
+                                      fontSize: 16.0,
+                                      shadows: [
+                                        Shadow(color:Colors.black,blurRadius:1.0,offset: Offset(1.0,1.5))
+                                      ]
+                                    ),
                                     filled: true,
                                     fillColor: Colors.white,
                                     border: OutlineInputBorder(borderSide: BorderSide(color: fromHex("#D5D5D5")))
